@@ -1,0 +1,36 @@
+.detalle-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.btn-volver {
+  background: none;
+  border: none;
+  color: #e63946;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.detalle-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Imagen a un lado, texto al otro */
+  gap: 40px;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.detalle-card img {
+  width: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.seguridad {
+  color: #2a9d8f;
+  font-size: 1.2rem;
+  font-weight: bold;
+}

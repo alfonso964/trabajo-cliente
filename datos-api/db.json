@@ -1,0 +1,135 @@
+{
+  "coches": [
+    {
+      "id": "1",
+      "marca": "Seat",
+      "modelo": "Ibiza",
+      "precio": 18000,
+      "categoria": "Utilitario",
+      "motor": "1.0 TSI 95cv",
+      "valoracionSeguridad": 5,
+      "imagen": "https://cdn-images.motor.es/image/m/1320w/fotos-noticias/2025/10/precio-seat-ibiza-2026-2025110785-1761740177_1.jpg",
+      "descripcion": "El Seat Ibiza es el compañero perfecto para la ciudad. Consumo bajísimo, fácil de aparcar y con toda la tecnología que necesitas para el día a día."
+    },
+    {
+      "id": "2",
+      "marca": "Toyota",
+      "modelo": "Yaris Hybrid",
+      "precio": 18900,
+      "categoria": "Eléctrico",
+      "motor": "Híbrido 116H",
+      "valoracionSeguridad": 5,
+      "imagen": "https://cdn.motor1.com/images/mgl/MkJqvn/s3/la-toyota-yaris-hybride-130.jpg",
+      "descripcion": "Eficiencia japonesa en estado puro. Olvídate de las restricciones de contaminación con su etiqueta ECO y disfruta de una conducción suave y silenciosa."
+    },
+    {
+      "id": "3",
+      "marca": "Dacia",
+      "modelo": "Duster",
+      "precio": 15400,
+      "categoria": "SUV",
+      "motor": "1.3 TCe 130cv",
+      "valoracionSeguridad": 3,
+      "imagen": "https://cdn.motor1.com/images/mgl/OkONM/s1/2022-dacia-duster-facelift.jpg",
+      "descripcion": "Robusto y polivalente. El Duster te ofrece la comodidad de un SUV con un precio imbatible, listo para escapadas por caminos o viajes en familia."
+    },
+    {
+      "id": "4",
+      "marca": "Volkswagen",
+      "modelo": "Golf GTI",
+      "precio": 24500,
+      "categoria": "Deportivo",
+      "motor": "2.0 TSI 245cv",
+      "valoracionSeguridad": 5,
+      "imagen": "https://static.motor.es/fotos-jato/volkswagen/uploads/volkswagen-golf-6669e59fcefc1.jpg",
+      "descripcion": "Un clásico entre los compactos deportivos. El Golf GTI combina la usabilidad diaria con unas prestaciones que te sacarán una sonrisa en cada curva."
+    },
+    {
+      "id": "5",
+      "marca": "Ford",
+      "modelo": "Focus",
+      "precio": 10000,
+      "categoria": "Utilitario",
+      "motor": "1.0 EcoBoost",
+      "valoracionSeguridad": 5,
+      "imagen": "https://images.coches.com/_news_/2014/02/Ford-Focus-2014-00-650x397.jpg",
+      "descripcion": "Conocido por su excelente chasis y conducción divertida, este Focus es ideal para quien busca un coche equilibrado, seguro y con buen maletero."
+    },
+    {
+      "id": "6",
+      "marca": "Citroën",
+      "modelo": "C4 Cactus",
+      "precio": 11800,
+      "categoria": "SUV",
+      "motor": "PureTech 110cv",
+      "valoracionSeguridad": 4,
+      "imagen": "https://static.motor.es/fotos-noticias/2017/10/citroen-c4-cactus-2018-fecha-presentacion-201740560_1.jpg",
+      "descripcion": "Diseño original y máximo confort. Gracias a sus suspensiones especiales, sentirás que flotas sobre el asfalto. Un coche con personalidad propia."
+    },
+    {
+      "id": "7",
+      "marca": "Audi",
+      "modelo": "A3",
+      "precio": 8500,
+      "categoria": "Utilitario",
+      "motor": "2.0 TDI 150cv",
+      "valoracionSeguridad": 5,
+      "imagen": "https://www.autofacil.es/wp-content/uploads/2021/05/2012-09-20_IMG_2012-09-20_130449_a3120247_medium-scaled-1.jpg",
+      "descripcion": "El compacto premium por excelencia en su versión más dinámica. Este Audi A3 de 2015 combina un diseño atemporal con una agilidad superior gracias a su carrocería compacta."
+    },
+    {
+      "id": "8",
+      "marca": "Renault",
+      "modelo": "Scenic E-Tech",
+      "precio": 40000,
+      "categoria": "Eléctrico",
+      "motor": "Eléctrico 160kW",
+      "valoracionSeguridad": 5,
+      "imagen": "https://cdn.motor1.com/images/mgl/qk6W71/s1/renault-scenic-e-tech-electric-2024-im-test.jpg",
+      "descripcion": "El coche eléctrico más popular. Ideal para recorridos urbanos sin emisiones, con una batería que sorprende por su autonomía real."
+    },
+    {
+      "id": "da3d",
+      "marca": "dacia",
+      "modelo": "sandero",
+      "precio": "4000",
+      "year": "2020",
+      "imagen": "https://loremflickr.com/800/600/dacia,dacia,sandero,vehicle,automobile/all?lock=4090"
+    },
+    {
+      "id": "e8f4",
+      "marca": "ford",
+      "modelo": "Focus",
+      "precio": "4000",
+      "year": "2015",
+      "categoria": "Utilitario",
+      "motor": "1.5 Ecoblue",
+      "descripcion": "El vehiculo esta en perfecto estado, con todos los extras ",
+      "imagen": "https://loremflickr.com/800/600/car,ford,focus,exterior,vehicle/all?lock=1637",
+      "seguridad": "5 / 5"
+    }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "nombre": "Utilitario"
+    },
+    {
+      "id": "2",
+      "nombre": "Deportivo"
+    },
+    {
+      "id": "3",
+      "nombre": "Eléctrico"
+    },
+    {
+      "id": "4",
+      "nombre": "SUV"
+    },
+    {
+      "id": "5",
+      "nombre": "Clásico"
+    }
+  ],
+  "mensajes": []
+}

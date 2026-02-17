@@ -1,0 +1,100 @@
+.vender-container {
+  padding: 120px 20px;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.vender-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 100%;
+  /* Lo subimos a 600px para que las filas de dos columnas respiren mejor */
+  max-width: 600px; 
+}
+
+.vender-titulo {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.rojo { color: #e63946; }
+
+.vender-form {
+  display: flex;
+  flex-direction: column;
+  /* Separación general entre bloques de preguntas */
+  gap: 20px; 
+}
+
+/* Contenedor de cada etiqueta + caja */
+.input-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-box label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  /* Aquí la separación que buscabas entre label y caja */
+  margin-bottom: 8px; 
+  color: #333;
+}
+
+/* Estilo para filas con dos columnas */
+.input-group {
+  display: flex;
+  gap: 20px; /* Separación horizontal entre los dos inputs */
+}
+
+.vender-form input, 
+.vender-form select, 
+.vender-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+/* Efecto visual al hacer clic en una caja */
+.vender-form input:focus, 
+.vender-form select:focus, 
+.vender-form textarea:focus {
+  border-color: #e63946;
+}
+
+.btn-publicar {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.btn-publicar:hover {
+  background-color: #e63946;
+}
+
+/* Ajuste para móviles: si la pantalla es pequeña, las filas dobles se vuelven una sola */
+@media (max-width: 480px) {
+  .input-group {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

@@ -1,0 +1,117 @@
+.footer-main {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 60px 0 20px 0;
+  margin-top: 50px;
+  
+  /* ESTO HACE QUE OCUPE TODO EL ANCHO */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+}
+
+.footer-container {
+  /* Esto mantiene el texto centrado y alineado con tu Header/Catálogo */
+  max-width: 1200px; 
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: 900;
+  font-style: italic;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.footer-logo span {
+  color: #e63946; /* Tu rojo corporativo */
+}
+
+.footer-brand p {
+  color: #999;
+  line-height: 1.6;
+  margin-top: 15px;
+  max-width: 400px;
+}
+
+.footer-links h4, 
+.footer-social h4 {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  color: #e63946;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: white;
+  padding-left: 8px;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-icons a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #e63946;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 25px;
+  border-top: 1px solid #333;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+/* RESPONSIVE: Para que en móviles se vea uno debajo de otro */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 50px;
+  }
+
+  .footer-brand p {
+    margin: 15px auto;
+  }
+
+  .social-icons {
+    align-items: center;
+  }
+}

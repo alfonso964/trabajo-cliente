@@ -1,0 +1,75 @@
+/* src/styles/Navbar.css */
+
+/* HEADER PRINCIPAL: Ocupa todo el ancho y se pega arriba */
+.navbar-header {
+  width: 100%;
+  position: fixed; /* Fijo para que no se mueva al hacer scroll */
+  top: 0;
+  left: 0;
+  height: 75px; /* Altura un poco más amplia para que respire */
+  
+  /* Tu rojo deportivo con un degradado sutil de calidad */
+  background: linear-gradient(90deg, #e63946 0%, #ce2d3a 100%);
+  
+  display: flex;
+  align-items: center;
+  z-index: 10000; /* Siempre por encima de todo */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* CONTENEDOR INTERNO: Centra el contenido pero deja espacio a los lados */
+.navbar-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+/* LOGO Y NOMBRE */
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  height: 48px;
+  width: auto;
+}
+
+/* GRUPO DE ENLACES */
+.nav-links {
+  display: flex;
+  gap: 8px; /* Espacio entre los botones */
+}
+
+/* ESTILO DE CADA ENLACE (BOTÓN) */
+.nav-item {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85); /* Blanco suave para los no activos */
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* EFECTO HOVER */
+.nav-item:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* ESTADO ACTIVO: Blanco brillante, sin tonos oscuros/granates */
+.nav-item.active {
+  color: #ffffff;
+  /* Fondo blanco semi-transparente para resaltar sobre el rojo */
+  background-color: rgba(255, 255, 255, 0.25); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-weight: 900; /* Más grosor para identificar la sección */
+}

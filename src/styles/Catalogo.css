@@ -1,0 +1,91 @@
+/* Contenedor principal del catálogo */
+.catalogo-container {
+  padding: 20px 0 40px 0; /* Menos espacio arriba para que el título suba */
+  max-width: 100%;
+  overflow: hidden;
+  background: transparent; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Título de la sección */
+.catalogo-titulo {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0d24ee;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px; /* Pegamos el título más al carrusel */
+  text-align: center;
+}
+
+/* Configuración de la librería Swiper */
+.mySwiper {
+  width: 100%;
+  padding-top: 30px !important;
+  padding-bottom: 60px !important; 
+}
+
+/* Estilo de cada Slide (la caja que contiene la tarjeta) */
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 320px !important; /* Ancho ajustado para que no se vea gigante */
+  height: auto;
+  filter: blur(0.5px);
+  opacity: 0.6;
+  transition: all 0.4s ease-in-out;
+}
+
+/* Estilo para la tarjeta que queda justo en el centro (Activa) */
+.swiper-slide-active {
+  filter: blur(0);
+  opacity: 1;
+  transform: scale(1.05); /* Un pequeño aumento para dar protagonismo */
+}
+
+/* Personalización de las flechas de navegación (Lados) */
+.swiper-button-next, 
+.swiper-button-prev {
+  color: #e63946 !important; /* Rojo deportivo */
+  transform: scale(0.7); /* Flechas un poco más discretas */
+  transition: all 0.3s;
+}
+
+.swiper-button-next:hover, 
+.swiper-button-prev:hover {
+  transform: scale(0.9);
+  text-shadow: 0 0 10px rgba(230, 57, 70, 0.4);
+}
+
+/* Personalización de los puntos de paginación (Abajo) */
+.swiper-pagination-bullet {
+  background: #ccc !important;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: #e63946 !important; /* Punto activo en rojo */
+  width: 20px !important; 
+  border-radius: 5px !important;
+}
+
+/* Mensaje de carga */
+.loading-text {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 100px;
+  color: #666;
+  font-family: sans-serif;
+}
+
+
+@media (max-width: 480px) {
+  .swiper-slide {
+    width: 260px !important;
+  }
+  .catalogo-titulo {
+    font-size: 1.6rem;
+  }
+}
