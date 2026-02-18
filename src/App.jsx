@@ -6,6 +6,7 @@ import Vender from './pages/Vender'
 import Contacto from './pages/Contacto'
 import DetalleCoche from './pages/DetalleCoche';
 import { FavoritosProvider } from './context/FavoritosContext';
+import Favoritos from './pages/Favoritos';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/vender" element={<Vender />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path='/favoritos' element={<Favoritos/>}/>
           <Route path="/coche/:id" element={<DetalleCoche />} />
         </Routes>
       </BrowserRouter>

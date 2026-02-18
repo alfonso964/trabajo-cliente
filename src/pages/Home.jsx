@@ -18,11 +18,8 @@ function Home() {
       </header>
 
       <Historia/>
-
       <Catalogo />
-
       <GraficoCategorias/>
-
       <Footer/>
 
       

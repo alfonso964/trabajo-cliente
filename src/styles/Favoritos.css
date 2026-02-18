@@ -1,0 +1,68 @@
+.favoritos-container {
+  padding: 140px 7% 60px; /* Más espacio arriba para que no pegue con la Navbar */
+  background-color: #f9f9f9; /* Un fondo gris muy claro para que resalten las tarjetas blancas */
+  min-height: 100vh;
+}
+
+/* Título de la sección */
+.titulo-seccion {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic;
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+}
+
+/* Subrayado decorativo debajo del título */
+.titulo-seccion::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 5px;
+  background-color: #e63946; /* Tu rojo corporativo */
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.rojo {
+  color: #e63946;
+  text-shadow: 2px 2px 0px rgba(230, 57, 70, 0.1);
+}
+
+.mensaje-vacio {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 50px;
+  font-weight: 500;
+}
+
+/* Grid de tarjetas */
+.favoritos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 40px; /* Un poco más de aire entre tarjetas */
+  justify-items: center;
+  margin-top: 60px;
+  /* Animación suave al cargar */
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+@media (max-width: 1100px) {
+  .favoritos-grid { grid-template-columns: repeat(2, 1fr); }
+  .titulo-seccion { font-size: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+  .favoritos-grid { grid-template-columns: 1fr; }
+  .titulo-seccion { font-size: 2rem; }
+}

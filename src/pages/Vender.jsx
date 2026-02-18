@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import Swal from 'sweetalert2'; 
+// 1. Importamos el servicio
+import { postCoche } from '../services/api'; 
 import "../styles/Vender.css";
 
 function Vender() {
@@ -22,43 +24,30 @@ function Vender() {
   const handleSubmit = async (e) => {
     e.preventDefault(); 
 
-    // Limpieza de datos para la API
     const marca = coche.marca.toLowerCase().trim();
     const modelo = coche.modelo.toLowerCase().trim();
     const randomSig = Math.floor(Math.random() * 5000);
-
-    /**
-     * ESTRATEGIA ANTI-FALLO (Ford Focus, Dacia, etc.):
-     * 1. Usamos "exterior" y "car" para evitar fotos de interiores o logos.
-     * 2. Repetimos la marca para dar fuerza a la búsqueda.
-     * 3. Mantenemos /all para que la API sea estricta.
-     */
-    const terminosBusqueda = `car,${marca},${modelo},exterior,vehicle`;
+    const queryBusqueda = `car,automobile,${marca},${modelo}`;
 
     const nuevoCoche = {
       ...coche,
-      // URL optimizada para evitar confusiones de la IA de LoremFlickr
-      imagen: `https://loremflickr.com/800/600/${terminosBusqueda}/all?lock=${randomSig}`,
+      imagen: `https://loremflickr.com/800/600/${queryBusqueda}/all?lock=${randomSig}`,
       seguridad: "5 / 5" 
     };
 
     try {
-      const res = await fetch("http://localhost:3001/coches", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(nuevoCoche)
-      });
+      // 2. Sustituimos el fetch por la llamada al servicio
+      await postCoche(nuevoCoche);
 
-      if (res.ok) {
-        Swal.fire({
-          title: '¡Publicado!',
-          text: `El ${coche.marca} ${coche.modelo} se ha añadido correctamente.`,
-          icon: 'success',
-          confirmButtonColor: '#e63946'
-        });
-        
-        setCoche({ marca: '', modelo: '', precio: '', year: '', categoria: '', motor: '', descripcion: '' });
-      }
+      Swal.fire({
+        title: '¡Publicado!',
+        text: ` ${coche.marca} ${coche.modelo} se ha añadido correctamente.`,
+        icon: 'success',
+        confirmButtonColor: '#e63946'
+      });
+      
+      setCoche({ marca: '', modelo: '', precio: '', year: '', categoria: '', motor: '', descripcion: '' });
+      
     } catch (error) {
       Swal.fire('Error', 'No se pudo conectar con el servidor', 'error');
     }
@@ -73,11 +62,11 @@ function Vender() {
           <div className="input-group">
             <div className="input-box">
               <label>Marca</label>
-              <input type="text" name="marca" value={coche.marca} onChange={handleChange} placeholder="Ej: Ford" required />
+              <input type="text" name="marca" value={coche.marca} onChange={handleChange} placeholder="Ej: Seat" required />
             </div>
             <div className="input-box">
               <label>Modelo</label>
-              <input type="text" name="modelo" value={coche.modelo} onChange={handleChange} placeholder="Ej: Focus" required />
+              <input type="text" name="modelo" value={coche.modelo} onChange={handleChange} placeholder="Ej: Leon" required />
             </div>
           </div>
 
@@ -106,7 +95,7 @@ function Vender() {
             </div>
             <div className="input-box">
               <label>Motor</label>
-              <input type="text" name="motor" value={coche.motor} onChange={handleChange} placeholder="Ej: 1.5 EcoBlue" required />
+              <input type="text" name="motor" value={coche.motor} onChange={handleChange} placeholder="Ej: 1.5 TSI" required />
             </div>
           </div>
 
@@ -116,7 +105,7 @@ function Vender() {
               name="descripcion" 
               value={coche.descripcion} 
               onChange={handleChange} 
-              placeholder="Estado del vehículo, extras, etc."
+              placeholder="Describe tu coche..."
               rows="3"
               required
             ></textarea>

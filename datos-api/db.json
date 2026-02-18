@@ -89,23 +89,15 @@
       "descripcion": "El coche eléctrico más popular. Ideal para recorridos urbanos sin emisiones, con una batería que sorprende por su autonomía real."
     },
     {
-      "id": "da3d",
+      "id": "2fff",
       "marca": "dacia",
       "modelo": "sandero",
-      "precio": "4000",
-      "year": "2020",
-      "imagen": "https://loremflickr.com/800/600/dacia,dacia,sandero,vehicle,automobile/all?lock=4090"
-    },
-    {
-      "id": "e8f4",
-      "marca": "ford",
-      "modelo": "Focus",
-      "precio": "4000",
-      "year": "2015",
-      "categoria": "Utilitario",
-      "motor": "1.5 Ecoblue",
-      "descripcion": "El vehiculo esta en perfecto estado, con todos los extras ",
-      "imagen": "https://loremflickr.com/800/600/car,ford,focus,exterior,vehicle/all?lock=1637",
+      "precio": "10000",
+      "year": "2022",
+      "categoria": "SUV",
+      "motor": "1.6 tdi",
+      "descripcion": "El coche se encuentra en perfecto estado, cuenta con todos los extras",
+      "imagen": "https://loremflickr.com/800/600/car,automobile,dacia,sandero/all?lock=3064",
       "seguridad": "5 / 5"
     }
   ],
