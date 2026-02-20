@@ -18,19 +18,19 @@
 
 /* AQUÍ ESTÁ LA MAGIA DE LAS COLUMNAS */
 .dos-columnas {
-  display: flex;            /* Esto los pone uno al lado del otro */
-  flex-direction: row;      /* En fila horizontal */
-  justify-content: center;  /* Centrados en la pantalla */
-  align-items: flex-start;  /* Alineados arriba */
-  gap: 40px;               /* Espacio entre mapa e info */
-  max-width: 1100px;        /* Ancho máximo para que no se estire infinito */
-  margin: 0 auto;           /* Centrar el bloque en la página */
+  display: flex;             /* Esto los pone uno al lado del otro */
+  flex-direction: row;       /* En fila horizontal */
+  justify-content: center;   /* Centrados en la pantalla */
+  align-items: flex-start;   /* Alineados arriba */
+  gap: 40px;                /* Espacio entre mapa e info */
+  max-width: 1100px;         /* Ancho máximo para que no se estire infinito */
+  margin: 0 auto;            /* Centrar el bloque en la página */
 }
 
 /* COLUMNA 1: EL MAPA */
 .caja-mapa {
-  flex: 1;                 /* Ocupa el 50% del espacio */
-  height: 350px;           /* ALTURA FIJA (Para que sea pequeño) */
+  flex: 1;                  /* Ocupa el 50% del espacio */
+  height: 550px;            /* Subimos un poco la altura para que cuadre con el formulario */
   border-radius: 15px;
   overflow: hidden;
   border: 4px solid white;
@@ -47,16 +47,16 @@
 
 /* COLUMNA 2: LA INFORMACIÓN */
 .caja-info {
-  flex: 1;                 /* Ocupa el otro 50% */
+  flex: 1;                  /* Ocupa el otro 50% */
   background: white;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  text-align: left;        /* Forzamos que el texto no esté centrado */
+  text-align: left;         /* Forzamos que el texto no esté centrado */
 }
 
 .caja-info h3 {
-  color: #e63946;          /* Rojo Alfonso Motors */
+  color: #e63946;           /* Rojo Alfonso Motors */
   margin-bottom: 25px;
   font-weight: 900;
   text-transform: uppercase;
@@ -71,7 +71,7 @@
 }
 
 .caja-info strong {
-  display: block;          /* Para que el título "Ubicación" salga encima del texto */
+  display: block;           /* Para que el título "Ubicación" salga encima del texto */
   font-size: 0.8rem;
   color: #e63946;
   text-transform: uppercase;
@@ -94,6 +94,67 @@
 .urgencias-resaltado {
   color: #e63946;
   font-weight: bold;
+}
+
+/* --- NUEVOS ESTILOS PARA EL FORMULARIO --- */
+
+.divisor {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+.contacto-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.input-box-contacto {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.input-box-contacto label {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.input-box-contacto input, 
+.input-box-contacto textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.input-box-contacto input:focus, 
+.input-box-contacto textarea:focus {
+  border-color: #e63946;
+}
+
+.btn-enviar-contacto {
+  background-color: #e63946;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-enviar-contacto:hover {
+  background-color: #c12a36;
+  transform: translateY(-2px);
 }
 
 /* RESPONSIVE: MÓVIL (PANTALLAS MENORES A 900PX) */

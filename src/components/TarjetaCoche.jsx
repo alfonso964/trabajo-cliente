@@ -1,30 +1,52 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/TarjetaCoche.css";
-// 1. Importamos el hook que conecta con el contexto
 import { useFavoritos } from "../context/FavoritosContext";
+import { toast } from 'react-toastify';
 
 function TarjetaCoche({ coche }) {
   const navegar = useNavigate();
-  
-  // 2. Extraemos lo que necesitamos del contexto global
   const { favoritos, toggleFavorito } = useFavoritos();
-
-  // 3. Comprobamos si este coche específico ya está en la lista de favoritos
   const esFavorito = favoritos.some((fav) => fav.id === coche.id);
 
   const manejarClickDetalles = () => {
     navegar(`/coche/${coche.id}`);
   };
 
+  const manejarFavorito = (e) => {
+    // Estas líneas son críticas para Swiper
+    e.preventDefault();
+    e.stopPropagation();
+    
+    console.log("¡CLIC CAPTURADO!"); 
+    
+    toggleFavorito(coche);
+    
+    if (!esFavorito) {
+      toast.success(`¡Se ha añadido a favoritos !`);
+    } else {
+      toast.info(`Eliminado de favoritos`);
+    }
+  };
+
   return (
     <div className="tarjeta-coche relative">
-      <div className="imagen-contenedor">
+      <div className="imagen-contenedor" style={{ position: 'relative' }}>
         <img src={coche.imagen} alt={coche.modelo} className="imagen-coche" />
         
-        {/* 4. Botón de favoritos sobre la imagen */}
         <button 
-          className={`absolute top-2 right-2 text-2xl cursor-pointer transition-transform hover:scale-120 z-10`}
-          onClick={() => toggleFavorito(coche)}
+          className="swiper-no-swiping" // Clase para el Swiper
+          onClick={manejarFavorito}
+          style={{
+            position: 'absolute',
+            top: '10px',
+            right: '10px',
+            zIndex: 9999, // Por encima de todo
+            cursor: 'pointer',
+            fontSize: '1.5rem',
+            background: 'none',
+            border: 'none',
+            pointerEvents: 'auto' // Asegura que responda a clics
+          }}
           title={esFavorito ? "Quitar de favoritos" : "Añadir a favoritos"}
         >
           {esFavorito ? "❤️" : "🤍"}

@@ -99,6 +99,18 @@
       "descripcion": "El coche se encuentra en perfecto estado, cuenta con todos los extras",
       "imagen": "https://loremflickr.com/800/600/car,automobile,dacia,sandero/all?lock=3064",
       "seguridad": "5 / 5"
+    },
+    {
+      "id": "b729",
+      "marca": "Audi ",
+      "modelo": "r8",
+      "precio": "200000",
+      "year": "2024",
+      "categoria": "Deportivo",
+      "motor": "v8",
+      "descripcion": "cdfsfsdfs",
+      "imagen": "https://loremflickr.com/800/600/car,automobile,audi,r8/all?lock=3913",
+      "seguridad": "5 / 5"
     }
   ],
   "categorias": [
@@ -123,5 +135,12 @@
       "nombre": "Clásico"
     }
   ],
-  "mensajes": []
+  "mensajes": [
+    {
+      "id": "5f41",
+      "nombre": "Carlos",
+      "email": "carlos@gmail.com",
+      "mensaje": "quiero hacer una revision"
+    }
+  ]
 }

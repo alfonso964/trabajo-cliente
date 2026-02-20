@@ -1,5 +1,5 @@
-// services/api.js
 const BASE_URL = "http://localhost:3001/coches";
+const MENSAJES_URL = "http://localhost:3001/mensajes"; // Cambiado a mensajes
 
 // Para el listado de la Home
 export const getCoches = async () => {
@@ -8,7 +8,7 @@ export const getCoches = async () => {
   return await res.json();
 };
 
-// NUEVA: Para la ficha técnica del Detalle
+// Para la ficha técnica del Detalle
 export const getCocheById = async (id) => {
   const res = await fetch(`${BASE_URL}/${id}`);
   if (!res.ok) throw new Error("No se encontró el vehículo");
@@ -22,5 +22,16 @@ export const postCoche = async (nuevoCoche) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(nuevoCoche)
   });
+  return await res.json();
+};
+
+// Para el formulario de Contacto
+export const postMensaje = async (nuevoMensaje) => {
+  const res = await fetch(MENSAJES_URL, { // Usando la constante en español
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(nuevoMensaje)
+  });
+  if (!res.ok) throw new Error("Error al enviar el mensaje");
   return await res.json();
 };

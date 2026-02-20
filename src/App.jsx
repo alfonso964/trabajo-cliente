@@ -7,7 +7,9 @@ import Contacto from './pages/Contacto'
 import DetalleCoche from './pages/DetalleCoche';
 import { FavoritosProvider } from './context/FavoritosContext';
 import Favoritos from './pages/Favoritos';
-
+// IMPORTAMOS TOASTIFY
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -22,8 +24,8 @@ function App() {
           <Route path="/coche/:id" element={<DetalleCoche />} />
         </Routes>
       </BrowserRouter>
+      <ToastContainer position="bottom-right" autoClose={2000} theme="colored" />
     </FavoritosProvider>
-    
   )
 }
 
