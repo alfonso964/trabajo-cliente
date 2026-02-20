@@ -9,7 +9,7 @@ function Footer() {
         {/* COLUMNA 1: LOGO Y FRASE */}
         <div className="footer-brand">
           <h2 className="footer-logo">ALFONSO <span>MOTORS</span></h2>
-          <p>Líderes en la importación de vehículos de alta gama. Pasión por la ingeniería desde 1995.</p>
+          <p>Líderes en la importación de vehículos de alta gama. Pasión por la ingeniería desde 2010.</p>
         </div>
 
         {/* COLUMNA 2: ENLACES RÁPIDOS */}

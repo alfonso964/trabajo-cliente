@@ -9,27 +9,32 @@ function Navbar() {
       <div className="navbar-container">
         
         <div className="nav-logo">
-          <NavLink to="/" className="flex items-center gap-2 no-underline">
+          {/* Añadimos flex-row para asegurar que el título esté a la derecha */}
+          <NavLink to="/" className="flex flex-row items-center gap-3 no-underline">
             <motion.img 
               src="/logoCoche.png" 
               alt="Logo" 
-              /* Animación de entrada: Cae desde arriba con rebote */
               initial={{ y: -100, opacity: 0, scale: 0.5 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
               transition={{ 
-                type: "spring", // Tipo de movimiento con rebote
-                stiffness: 260, // Rigidez del muelle
-                damping: 20,    // Amortiguación (cuánto tarda en pararse)
+                type: "spring", 
+                stiffness: 260, 
+                damping: 20,    
                 delay: 0.2 
               }}
-              /* Animación de Hover: Se hace grande y da un giro de 360 grados */
               whileHover={{ 
                 scale: 1.2, 
                 rotate: 360,
                 transition: { duration: 0.8 } 
               }}
               whileTap={{ scale: 0.8 }}
+              className="logo-img"
             />
+            
+            {/* TÍTULO A LA DERECHA */}
+            <span className="navbar-title">
+              Alfonso <span className="font-black">Motors</span>
+            </span>
           </NavLink>
         </div>
 
