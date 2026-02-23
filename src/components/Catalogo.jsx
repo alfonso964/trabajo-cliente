@@ -11,13 +11,13 @@ import TarjetaCoche from "./TarjetaCoche";
 import { getCoches } from "../services/api";
 
 function Catalogo() {
-  const [coches, setCoches] = useState([]);
-  const [filtrados, setFiltrados] = useState([]);
-  const [cargando, setCargando] = useState(true);
+  const [coches, setCoches] = useState([]); //Donde almacenamos todos los coches
+  const [filtrados, setFiltrados] = useState([]); //Almacenamos los coches una vez filtrados
+  const [cargando, setCargando] = useState(true); //Para mostrar un mensaje con cargando mientras carga la api
 
-  const [busqueda, setBusqueda] = useState("");
-  const [categoria, setCategoria] = useState("");
-  const [orden, setOrden] = useState("");
+  const [busqueda, setBusqueda] = useState(""); //Este es el texto que escribe el usuario
+  const [categoria, setCategoria] = useState(""); //Guarda la categoria que se elige en el select
+  const [orden, setOrden] = useState(""); //Guarda el orden que se elige en el select
 
   useEffect(() => {
     getCoches()
@@ -33,15 +33,16 @@ function Catalogo() {
   }, []);
 
   useEffect(() => {
+    //Creamos resultado para guardar los resultados que se pasen en el filtro
     let resultado = coches.filter((c) => {
-      const nombreCoche = `${c.marca} ${c.modelo}`.toLowerCase();
+      const nombreCoche = (c.marca + " " + c.modelo).toLowerCase();
       const terminoBusqueda = busqueda.toLowerCase().trim();
-      const coincideBusqueda = nombreCoche.includes(terminoBusqueda);
-      const coincideCategoria = categoria === "" || c.categoria === categoria;
+      const coincideBusqueda = nombreCoche.includes(terminoBusqueda); //Compribamos si el nombre que que ha escrito el usuario coincide con algun coche
+      const coincideCategoria = categoria === "" || c.categoria === categoria; //Si el usuario no lo elige categoria pasa el filtro , y si la elige tambien lo pasa
       return coincideBusqueda && coincideCategoria;
     });
 
-    const limpiarPrecio = (p) => Number(String(p).replace(/[^0-9.-]+/g, ""));
+    const limpiarPrecio = (p) => Number(String(p).replace(/[^0-9.-]+/g, "")); //Para eliminar todo lo que no sea necesario
 
     if (orden === "barato") {
       resultado.sort((a, b) => limpiarPrecio(a.precio) - limpiarPrecio(b.precio));
@@ -50,7 +51,7 @@ function Catalogo() {
     }
 
     setFiltrados(resultado);
-  }, [busqueda, categoria, orden, coches]);
+  }, [busqueda, categoria, orden, coches]); //Si alguno cambia se vuelve a ejecutar el filtro
 
   const handleMouseEnter = (e) => { e.target.style.transform = "scale(1.03)"; };
   const handleMouseLeave = (e) => { e.target.style.transform = "scale(1)"; };
@@ -93,16 +94,14 @@ function Catalogo() {
       <div className="swiper-viewport">
         {filtrados.length > 0 ? (
           <Swiper
-            key={filtrados.length}
+            key={filtrados.length} //Para que se reinice el carrusel si cambia el número de coches
             effect={"coverflow"}
             grabCursor={true}
             centeredSlides={true}
             slidesPerView={"auto"}
             loop={filtrados.length > 3}
-            /* --- ESTO ES LO QUE HEMOS AÑADIDO --- */
             noSwiping={true}
             noSwipingClass="swiper-no-swiping"
-            /* ------------------------------------ */
             coverflowEffect={{
               rotate: 20,
               stretch: -10,

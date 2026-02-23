@@ -1,4 +1,3 @@
-/* src/styles/Navbar.css */
 
 .navbar-header {
   width: 100%;
@@ -23,14 +22,7 @@
   padding: 0 40px;
 }
 
-/* Forzamos que el logo y el texto estén en línea */
-.nav-logo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.nav-logo a {
+.nav-logo, .nav-logo a {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -40,7 +32,7 @@
 .logo-img {
   height: 48px;
   width: auto;
-  margin-right: 12px; /* Espacio extra a la derecha del logo */
+  margin-right: 12px;
 }
 
 .navbar-title {
@@ -51,12 +43,12 @@
   font-style: italic;
   letter-spacing: -1px;
   white-space: nowrap;
-  line-height: 1; /* Para que el texto se centre verticalmente con el logo */
+  line-height: 1;
 }
 
 .nav-links {
   display: flex;
-  gap: 8px; 
+  gap: 8px;
 }
 
 .nav-item {
@@ -71,15 +63,77 @@
   transition: all 0.3s ease-in-out;
 }
 
-.nav-item:hover {
+.nav-item:hover, .nav-item.active {
   color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-1px);
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
-.nav-item.active {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.25); 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-weight: 900;
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10001;
+}
+
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background: white;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before { transform: translateY(-8px); }
+.hamburger::after { transform: translateY(8px); }
+
+
+.hamburger.open { background: transparent; }
+.hamburger.open::before { transform: rotate(45deg) translateY(0); }
+.hamburger.open::after { transform: rotate(-45deg) translateY(0); }
+
+/* --- RESPONSIVE (MEDIA QUERY) --- */
+
+@media (max-width: 850px) {
+  .menu-toggle {
+    display: block; /* Mostramos el botón hamburguesa */
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 75px;
+    right: -100%; /* Menú escondido a la derecha */
+    width: 70%;    /* Ocupa el 70% del ancho */
+    height: calc(100vh - 75px);
+    background: #ce2d3a;
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 15px;
+    transition: 0.4s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+  }
+
+  /* Cuando el estado estaAbierto es true, se añade esta clase */
+  .nav-links.open {
+    right: 0; /* Desliza el menú hacia adentro */
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 15px;
+  }
 }

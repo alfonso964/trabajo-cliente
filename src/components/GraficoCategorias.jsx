@@ -12,18 +12,18 @@ function GraficoCategorias() {
     fetch("http://localhost:3001/coches")
       .then(res => res.json())
       .then(coches => {
-        const contar = {};
+        const contar = {}; //Creamos un objeto vacio para acumular el conteo
         coches.forEach(c => {
-          contar[c.categoria] = (contar[c.categoria] || 0) + 1;
-        });
+          contar[c.categoria] = (contar[c.categoria] || 0) + 1; //Si ya existe una categoria en contar le suma 1, si no la crea
+        });                                                     //con el valor 0 y le suma 1
 
         setDatosGrafico({
-          labels: Object.keys(contar),
+          labels: Object.keys(contar), // Etiquetas : Suv, deportivo...
           datasets: [{
             label: 'Unidades',
-            data: Object.values(contar),
+            data: Object.values(contar), //Cuantos hay de cada categoría
             backgroundColor: [
-              '#fdcb6e', // Azul Eléctrico (Principal)
+              '#fdcb6e', 
               '#ff7f50', 
               '#0097e6', 
               '#e63946', 

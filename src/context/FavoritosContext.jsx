@@ -11,9 +11,10 @@ export const FavoritosProvider = ({ children }) => {
   // Función para añadir o quitar de favoritos
   const toggleFavorito = (coche) => {
     const existe = favoritos.find(fav => fav.id === coche.id);
+    // Si ya está,lo quitamos
     if (existe) {
       setFavoritos(favoritos.filter(fav => fav.id !== coche.id));
-    } else {
+    } else { //Si no está añadido a favoritos, lo añadimos usando spread para no borrar los que ya haya
       setFavoritos([...favoritos, coche]);
     }
   };

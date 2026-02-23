@@ -7,7 +7,7 @@ function Historia() {
     <section className="historia-section">
       <div className="historia-container">
         
-        {/* BLOQUE 1: LOS ORÍGENES */}
+        {/* BLOQUE 1: orígenes */}
         <div className="historia-row">
           <motion.div 
             className="historia-text"
@@ -52,7 +52,7 @@ function Historia() {
           </motion.div>
         </div>
 
-        {/* BLOQUE 2: LA FILOSOFÍA */}
+        {/* BLOQUE 2: filosofía */}
         <div className="historia-row reverse">
           <motion.div 
             className="historia-image-wrapper"

@@ -5,21 +5,17 @@ import { toast } from 'react-toastify';
 
 function TarjetaCoche({ coche }) {
   const navegar = useNavigate();
-  const { favoritos, toggleFavorito } = useFavoritos();
-  const esFavorito = favoritos.some((fav) => fav.id === coche.id);
+  const { favoritos, toggleFavorito } = useFavoritos(); //Trae la lista actual de favoritos y para cambiarla
+  const esFavorito = favoritos.some((fav) => fav.id === coche.id);// Comprueba si el coche de esta tarjeta ya existe en la lista global de favoritos comparando sus IDs
 
   const manejarClickDetalles = () => {
-    navegar(`/coche/${coche.id}`);
+    navegar(`/coche/${coche.id}`); //Manda al usuario a la pagina especifica de detalles segun el id del coche
   };
 
   const manejarFavorito = (e) => {
-    // Estas líneas son críticas para Swiper
     e.preventDefault();
     e.stopPropagation();
-    
-    console.log("¡CLIC CAPTURADO!"); 
-    
-    toggleFavorito(coche);
+    toggleFavorito(coche); // Llama a la función del contexto para actualizar la lista global
     
     if (!esFavorito) {
       toast.success(`¡Se ha añadido a favoritos !`);
@@ -45,7 +41,7 @@ function TarjetaCoche({ coche }) {
             fontSize: '1.5rem',
             background: 'none',
             border: 'none',
-            pointerEvents: 'auto' // Asegura que responda a clics
+            pointerEvents: 'auto' 
           }}
           title={esFavorito ? "Quitar de favoritos" : "Añadir a favoritos"}
         >
