@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import Swal from 'sweetalert2'; 
-// 1. Importamos el servicio
 import { postCoche } from '../services/api'; 
 import "../styles/Vender.css";
 
 function Vender() {
+  // Creamos un objeto que guarda todos los campos del formulario.
   const [coche, setCoche] = useState({
     marca: '',
     modelo: '',
@@ -16,11 +16,16 @@ function Vender() {
     descripcion: ''
   });
 
+  // Cada vez que el usuario escribe se ejecuta la función
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target; //Se coge el nombre del input y su valor
+    
+    // Actualizamos el estado manteniendo lo que ya había, copiando el array inicial
+    // y cambiando solo el campo que el usuario está tocando ([name]: value)
     setCoche({ ...coche, [name]: value });
   };
 
+  //enviar datos
   const handleSubmit = async (e) => {
     e.preventDefault(); 
 
@@ -29,16 +34,19 @@ function Vender() {
     const randomSig = Math.floor(Math.random() * 5000);
     const queryBusqueda = `car,automobile,${marca},${modelo}`;
 
+    // Creamos el objeto final que irá a la base de datos
     const nuevoCoche = {
       ...coche,
+      // se genera una imagen aleatoria basada en la marca y modelo
       imagen: `https://loremflickr.com/800/600/${queryBusqueda}/all?lock=${randomSig}`,
       seguridad: "5 / 5" 
     };
 
     try {
-      // 2. Sustituimos el fetch por la llamada al servicio
+      // Envio el nuevo coche al servidor a través del post de nuestra api
       await postCoche(nuevoCoche);
 
+      // Alerta de éxito
       Swal.fire({
         title: '¡Publicado!',
         text: ` ${coche.marca} ${coche.modelo} se ha añadido correctamente.`,
@@ -46,6 +54,7 @@ function Vender() {
         confirmButtonColor: '#e63946'
       });
       
+      // 5.Dejamos el formulario como estaba al inicio, para poder subir otro coche
       setCoche({ marca: '', modelo: '', precio: '', year: '', categoria: '', motor: '', descripcion: '' });
       
     } catch (error) {
@@ -58,59 +67,21 @@ function Vender() {
       <div className="vender-card">
         <h2 className="vender-titulo">Vender <span className="rojo">Vehículo</span></h2>
         
+        {/* El evento onSubmit se pone en la etiqueta <form> */}
         <form onSubmit={handleSubmit} className="vender-form">
           <div className="input-group">
             <div className="input-box">
               <label>Marca</label>
-              <input type="text" name="marca" value={coche.marca} onChange={handleChange} placeholder="Ej: Seat" required />
-            </div>
-            <div className="input-box">
-              <label>Modelo</label>
-              <input type="text" name="modelo" value={coche.modelo} onChange={handleChange} placeholder="Ej: Leon" required />
-            </div>
-          </div>
-
-          <div className="input-group">
-            <div className="input-box">
-              <label>Precio (€)</label>
-              <input type="number" name="precio" value={coche.precio} onChange={handleChange} placeholder="0" required />
-            </div>
-            <div className="input-box">
-              <label>Año</label>
-              <input type="number" name="year" value={coche.year} onChange={handleChange} placeholder="2024" required />
+              <input 
+                type="text" 
+                name="marca" // El name debe coincidir con la clave del estado
+                value={coche.marca} // El valor lo lee del estado
+                onChange={handleChange} // Al escribir, llama a la función
+                placeholder="Ej: Seat" 
+                required 
+              />
             </div>
           </div>
-
-          <div className="input-group">
-            <div className="input-box">
-              <label>Categoría</label>
-              <select name="categoria" value={coche.categoria} onChange={handleChange} required>
-                <option value="">Selecciona...</option>
-                <option value="Utilitario">Utilitario</option>
-                <option value="SUV">SUV</option>
-                <option value="Berlina">Berlina</option>
-                <option value="Eléctrico">Eléctrico</option>
-                <option value="Deportivo">Deportivo</option>
-              </select>
-            </div>
-            <div className="input-box">
-              <label>Motor</label>
-              <input type="text" name="motor" value={coche.motor} onChange={handleChange} placeholder="Ej: 1.5 TSI" required />
-            </div>
-          </div>
-
-          <div className="input-box">
-            <label>Descripción</label>
-            <textarea 
-              name="descripcion" 
-              value={coche.descripcion} 
-              onChange={handleChange} 
-              placeholder="Describe tu coche..."
-              rows="3"
-              required
-            ></textarea>
-          </div>
-          
           <button type="submit" className="btn-publicar">Publicar Vehículo</button>
         </form>
       </div>
