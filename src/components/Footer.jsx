@@ -29,7 +29,7 @@ function Footer() {
           <div className="social-icons">
             <a href="#">Instagram</a>
             <a href="#">YouTube</a>
-            <a href="#">X (Twitter)</a>
+            <a href="#">X</a>
           </div>
         </div>
 
