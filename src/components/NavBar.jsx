@@ -8,7 +8,7 @@ function Navbar() {
   // 1. Estado para controlar si el menú móvil está abierto o cerrado
   const [estaAbierto, setEstaAbierto] = useState(false); 
 
-  // 2. Función para alternar el estado (si está abierto lo cierra, y viceversa)
+  // 2. Función para alternar el estado
   const cambiarMenu = () => setEstaAbierto(!estaAbierto);
 
   return (

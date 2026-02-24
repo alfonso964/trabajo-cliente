@@ -42,7 +42,6 @@ function GraficoCategorias() {
       <div className="grafico-card">
         <h2>Nuestro <span className="text-red-600">Inventario</span></h2>
         
-        {/* PARRAFO DESCRIPTIVO AÑADIDO AQUÍ */}
         <p className="grafico-descripcion">
           En Alfonso Motors mantenemos un stock equilibrado para cada tipo de conductor. 
           Aquí puedes visualizar de forma dinámica la distribución actual de nuestro stock 
