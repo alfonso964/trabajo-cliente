@@ -1,22 +1,23 @@
+import "../styles/DetalleCoche.css";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getCocheById } from "../services/api"; // Importación del servicio
-import "../styles/DetalleCoche.css";
 import { useFavoritos } from "../context/FavoritosContext";
 
 function DetalleCoche() {
-  const { id } = useParams();
-  const navegar = useNavigate();
+  const { id } = useParams(); //para coger el id que se pasa por la url
+  const navegar = useNavigate(); //para poder movernos por las paginas
   const [coche, setCoche] = useState(null);
-  const { favoritos, toggleFavorito } = useFavoritos();
+  const { favoritos, toggleFavorito } = useFavoritos();// Traemos la lista de favoritos y la función para añadir/quitar.
 
   useEffect(() => {
-    // Usamos el servicio centralizado
+    // pedimos el coche que tenga ese id
     getCocheById(id)
       .then((data) => setCoche(data))
       .catch((err) => console.error("Error al cargar el detalle:", err));
   }, [id]);
 
+  // Revisa si algún coche de favoritos tiene el mismo ID que el coche actual.
   const esFavorito = coche && favoritos.some((fav) => fav.id === coche.id);
 
   if (!coche) return <p className="loading">Cargando ficha técnica...</p>;

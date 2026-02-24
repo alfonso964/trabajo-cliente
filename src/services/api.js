@@ -1,5 +1,5 @@
 const BASE_URL = "http://localhost:3001/coches";
-const MENSAJES_URL = "http://localhost:3001/mensajes"; // Cambiado a mensajes
+const MENSAJES_URL = "http://localhost:3001/mensajes"; 
 
 // Para el listado de la Home
 export const getCoches = async () => {
@@ -27,7 +27,7 @@ export const postCoche = async (nuevoCoche) => {
 
 // Para el formulario de Contacto
 export const postMensaje = async (nuevoMensaje) => {
-  const res = await fetch(MENSAJES_URL, { // Usando la constante en español
+  const res = await fetch(MENSAJES_URL, { 
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(nuevoMensaje)
