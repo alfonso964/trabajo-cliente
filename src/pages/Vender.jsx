@@ -102,7 +102,7 @@ function Vender() {
             </div>
           </div>
 
-          {/* DESCRIPCIÓN (OCUPA TODO EL ANCHO) */}
+          {/* DESCRIPCIÓN  */}
           <div className="input-box">
             <label>Descripción</label>
             <textarea name="descripcion" value={coche.descripcion} onChange={handleChange} placeholder="Estado del vehículo..." rows="3" required></textarea>

@@ -37,7 +37,7 @@ function Catalogo() {
     let resultado = coches.filter((c) => {
       const nombreCoche = (c.marca + " " + c.modelo).toLowerCase();
       const terminoBusqueda = busqueda.toLowerCase().trim();
-      const coincideBusqueda = nombreCoche.includes(terminoBusqueda); //Compribamos si el nombre que que ha escrito el usuario coincide con algun coche
+      const coincideBusqueda = nombreCoche.includes(terminoBusqueda); //Comprobamos si el nombre que que ha escrito el usuario coincide con algun coche
       const coincideCategoria = categoria === "" || c.categoria === categoria; //Si el usuario no lo elige categoria pasa el filtro , y si la elige tambien lo pasa
       return coincideBusqueda && coincideCategoria;
     });
